@@ -4,11 +4,12 @@ from io import BytesIO
 import requests
 import flask
 from flask import Flask
-
+from flask_cors import CORS
 model = torch.hub.load('ultralytics/yolov5', 'yolov5m', pretrained=True)
 model.conf = 0.4
 
 app = Flask(__name__)
+CORS(app)
 @app.route("/")
 def hello():
     return "Hello World!"
