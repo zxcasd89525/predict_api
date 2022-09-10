@@ -29,9 +29,4 @@ def predict():
             output_dict['predict'].append(p.to_dict('records'))
     return output_dict,200
 if __name__ == "__main__":
-    img = "https://cdn.discordapp.com/attachments/1015635317845405818/1017810533518409768/f0ae81911bc258fa.JPG"
-    response = requests.get(img)
-
-    img = Image.open(BytesIO(response.content))
-    model(img)
     app.run(host="0.0.0.0",port=5000)
